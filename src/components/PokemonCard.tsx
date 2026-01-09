@@ -1,17 +1,4 @@
-const pokemonList = [
-  {
-    name: "bulbasaur",
-    imgSrc:
-      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
-  },
-  {
-    name: "mew",
-  },
-];
-
-function PokemonCard() {
-  const pokemon = pokemonList[0]; // Change à [1] pour tester Mew
-
+function PokemonCard({ pokemon }) {
   return (
     <figure style={{ textAlign: "center", color: "white" }}>
       {pokemon.imgSrc ? (
@@ -23,7 +10,10 @@ function PokemonCard() {
       ) : (
         <p>???</p>
       )}
-      <figcaption style={{ marginTop: "0.5rem" }}>{pokemon.name}</figcaption>
+
+      <figcaption style={{ marginTop: "0.5rem" }}>
+        {pokemon.name}
+      </figcaption>
     </figure>
   );
 }
