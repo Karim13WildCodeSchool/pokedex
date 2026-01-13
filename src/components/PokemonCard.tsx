@@ -1,21 +1,28 @@
-function PokemonCard({ pokemon }) {
+import React from "react";
+
+interface Pokemon {
+  name: string;
+  imgSrc?: string;
+}
+
+interface PokemonCardProps {
+  pokemon: Pokemon;
+}
+
+const PokemonCard: React.FC<PokemonCardProps> = ({ pokemon }) => {
   return (
-    <figure style={{ textAlign: "center", color: "white" }}>
-      {pokemon.imgSrc ? (
+    <div className="pokemon-card">
+      <h2>{pokemon.name}</h2>
+
+      {pokemon.imgSrc && (
         <img
           src={pokemon.imgSrc}
           alt={pokemon.name}
-          style={{ width: "150px", height: "150px" }}
+          className="pokemon-image"
         />
-      ) : (
-        <p>???</p>
       )}
-
-      <figcaption style={{ marginTop: "0.5rem" }}>
-        {pokemon.name}
-      </figcaption>
-    </figure>
+    </div>
   );
-}
+};
 
 export default PokemonCard;
